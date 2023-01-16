@@ -24,10 +24,7 @@ class CaddyApi:
     def is_idexists(self, element_id) -> bool:
         response = self._api(path=f"id/{element_id}/", method='GET')
 
-        if response["status"] == 200:
-            return True
-        else:
-            return False
+        return  response["status"] == 200
 
     def _api(self, path='', method='GET', data=None) -> dict:
         result = dict({
